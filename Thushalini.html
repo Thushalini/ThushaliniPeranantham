@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thushalini Peranantham</title>
+  <meta name="description" content="Data science undergraduate portfolio: projects, skills, resume, and contact." />
+  <meta property="og:title" content="Thushalini Peranantham" />
+  <meta property="og:description" content="Data science undergraduate portfolio: projects, skills, resume, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-img.png" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b1220; /* slate-950 */
+      --panel: #0f172a; /* slate-900 */
+      --muted: #94a3b8; /* slate-400 */
+      --text: #e2e8f0; /* slate-200 */
+      --brand: #22d3ee; /* cyan-400 */
+      --accent: #a78bfa; /* violet-400 */
+      --ring: rgba(34, 211, 238, .35);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; }
+    body{
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -10%, #0e1a33 0%, transparent 60%),
+                  radial-gradient(1000px 500px at 110% 10%, #1b0e3a 0%, transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container{ max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header{
+      position: sticky; top:0; z-index: 50; backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, .6); border-bottom: 1px solid rgba(148,163,184,.15);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .nav a{ margin: 0 10px; color: var(--text); opacity:.85; font-weight:600; }
+    .nav a:hover{ opacity:1; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:14px;
+          background: linear-gradient(135deg, var(--brand), var(--accent)); color:#0b1220; font-weight:700;
+          border: 1px solid rgba(255,255,255,.08); box-shadow: 0 10px 30px rgba(34,211,238,.15);
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 16px 40px rgba(167,139,250,.2); }
+    .chip{ display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:rgba(148,163,184,.15); color:var(--text); font-size:12px; }
+    .grid{ display:grid; gap:18px; }
+    @media(min-width: 900px){ .grid-2{ grid-template-columns: 1fr 1fr } }
+
+    /* Hero */
+    .hero{ padding: 70px 0 36px; }
+    .title{ font-size: clamp(28px, 4vw, 48px); line-height:1.1; font-weight:800; letter-spacing:-0.02em; }
+    .subtitle{ font-size: clamp(16px, 2vw, 20px); color: var(--muted); max-width: 70ch; }
+    .avatar{ width: 110px; height:110px; border-radius: 22px; border:1px solid rgba(255,255,255,.08);
+      background: url('assets/avatar.png') center/cover, linear-gradient(135deg, #1f2937, #0b1220);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    /* Cards */
+    .card{ background: linear-gradient(180deg, rgba(148,163,184,.08), rgba(148,163,184,.04));
+      border: 1px solid rgba(148,163,184,.2); border-radius: 18px; padding: 18px; transition: .2s transform;
+    }
+    .card:hover{ transform: translateY(-3px); }
+    .card h3{ margin: 0 0 6px; font-size: 18px; }
+    .card p{ margin:0; color: var(--muted); }
+
+    /* Sections */
+    section{ padding: 28px 0; }
+    .section-title{ font-weight: 800; font-size: 22px; letter-spacing:.01em; margin: 6px 0 14px; }
+    .muted{ color: var(--muted); }
+
+    /* Projects */
+    .project{ display:grid; gap:14px; grid-template-columns: 1fr; }
+    @media(min-width: 850px){ .project{ grid-template-columns: 3fr 2fr; align-items:center; } }
+    .project .media{ aspect-ratio: 16/10; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.08);
+      background: #0f172a; display:grid; place-items:center; }
+    .project img{ width: 100%; height:100%; object-fit: cover; display:block; }
+
+    /* Timeline */
+    .timeline{ position: relative; padding-left: 18px; }
+    .timeline:before{ content:""; position:absolute; left: 7px; top:0; bottom:0; width:2px; background:rgba(148,163,184,.25); }
+    .tl-item{ position:relative; margin:14px 0; padding-left: 28px;}
+    .tl-item:before{ content:""; position:absolute; left:0; top:6px; width:14px; height:14px; border-radius:50%;
+      background: linear-gradient(135deg, var(--brand), var(--accent)); box-shadow: 0 0 0 4px rgba(34,211,238,.15); }
+
+    /* Footer */
+    footer{ padding: 24px 0 60px; text-align:center; color: var(--muted); }
+
+    /* Dark mode toggle */
+    .toggle{ cursor:pointer; border-radius:10px; border:1px solid rgba(255,255,255,.08); padding:6px 10px; color:var(--muted); }
+
+    /* Responsive table */
+    .skill-table{ width:100%; border-collapse: collapse; }
+    .skill-table th,.skill-table td{ border-bottom:1px solid rgba(148,163,184,.2); padding:10px; text-align:left; }
+    .skill-pills { display:flex; flex-wrap:wrap; gap:8px; }
+    .pill{ padding:6px 10px; border-radius:999px; background:rgba(148,163,184,.15); font-size:12px; }
+
+    /* Contact */
+    form{ display:grid; gap:12px; }
+    input, textarea{ background:#0b1220; color:var(--text); border:1px solid rgba(148,163,184,.3); padding:12px 12px; border-radius:12px; }
+    input:focus, textarea:focus{ outline:2px solid var(--ring); border-color:var(--brand); }
+
+    /* Skip link */
+    .skip-link{ position:absolute; left:-9999px; }
+    .skip-link:focus{ left:10px; top:10px; z-index:99; background:var(--brand); color:#0b1220; padding:8px 10px; border-radius:8px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Thushalini Peranantham",
+    "url": "https://yourdomain.com",
+    "sameAs": [
+      "https://github.com/Thushalini",
+      "https://www.linkedin.com/in/thushalini-peranantham",
+      "mailto:thushaliniammu12@gmail.com"
+    ],
+    "jobTitle": "Data Science Undergraduate",
+    "alumniOf": "Sri Lanka Institute of Information Technology",
+    "knowsAbout": ["machine learning","data analysis","python","statistics","deep learning"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <div style="font-weight:800; letter-spacing:.01em;">Thushalini Peranantham</div>
+          <div class="muted" style="font-size:12px;">Data Science Undergraduate · Colombo, LK</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <a class="btn" href="assets/Thushalini Peranantham.pdf" download>Download Resume</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle theme">☾</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="grid grid-2">
+        <div>
+          <div class="chip">Open to Internships · remote</div>
+          <h1 class="title" style="margin:10px 0 12px;">Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent;">THUSHALINI PERANANTHAM</span> — a data science undergraduate passionate about turning messy data into clear decisions.</h1>
+          <p class="subtitle">I enjoy building end-to-end ML projects: from cleaning data and feature engineering to training models and deploying lightweight apps. Currently, I am working on <strong>music recommendation agents</strong>, <strong>student performance prediction</strong>, and <strong>T5‑based summarization</strong>.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+            <a class="btn" href="#projects">See my projects</a>
+            <a class="chip" href="https://github.com/Thushalini" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="chip" href="https://www.linkedin.com/in/thushalini-peranantham" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="chip" href="mailto:thushaliniammu12@gmail.com">Email me ↗</a>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h3>Quick Snapshot</h3>
+            <ul class="muted" style="margin:8px 0 0 18px;">
+              <li>🎓 Undergraduate @ SLIIT (Year: 3)</li>
+              <li>🧠 Interests: Recommender Systems, NLP, MLOps</li>
+              <li>🛠️ Stack: Python, PyTorch, scikit‑learn, Pandas, SQL</li>
+              <li>📍 Colombo, Sri Lanka (UTC+5:30)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Working Projects</h2>
+
+      <article class="project card">
+        <div>
+          <h3>🎵 Agentic Music Recommender - Group project</h3>
+          <p class="muted">Multi‑agent system with <strong>Mood Detector</strong>, <strong>Genre Classifier</strong>, and <strong>Playlist Builder</strong> using Spotify API and LLM reasoning. Built a Streamlit UI, implemented token refresh, and scoring logic for mood‑genre alignment.</p>
+          <p>I am responsible for <strong>Mood detector</strong></p>
+          <div class="skill-pills" style="margin:10px 0;">
+            <span class="pill">Python</span><span class="pill">Streamlit</span><span class="pill">FastAPI</span><span class="pill">Spotify API</span><span class="pill">OpenAI</span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="chip" href="https://github.com/Thushalini/MusicRecommendationAI" target="_blank">Code ↗</a>
+            <!-- <a class="chip" href="#" target="_blank">Demo ↗</a> -->
+          </div>
+        </div>
+        <!-- <div class="media">
+          <img src="assets/project-music.jpg" alt="Screenshot of agentic music recommender app UI" />
+        </div> -->
+      </article>
+
+      <article class="project card">
+        <div>
+          <h3>📊 Student Success Classifier (Pass/Fail) - Group project</h3>
+          <p class="muted">
+      Worked with a <em>problematic</em> education dataset (missing values, outliers, inconsistent labels).
+      Performed robust cleaning and EDA, engineered features (attendance, prep course, subject averages),
+      and trained baseline & ensemble classifiers to predict whether a student will pass the final exam.
+      Evaluated with cross-validation, confusion matrix, precision/recall/F1, and ROC-AUC; packaged a clear
+      notebook explaining the full pipeline.
+          </p>
+          <div class="skill-pills" style="margin:10px 0;">
+            <span class="pill">Python</span><span class="pill">Pandas</span><span class="pill">scikit-learn</span>
+            <span class="pill">Logistic Regression</span><span class="pill">Random Forest</span>
+            <span class="pill">Metrics</span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="chip" href="https://github.com/YOUR_GITHUB/student-success-classifier" target="_blank">Code ↗</a>
+            <a class="chip" href="#" target="_blank">Notebook ↗</a>
+            <a class="chip" href="#" target="_blank">Report ↗</a>
+          </div>
+        </div>
+  <!-- Optional media preview
+  <div class="media">
+    <img src="assets/project-students.jpg" alt="Pass/Fail classification pipeline and evaluation charts" />
+  </div> -->
+      </article>
+
+
+      <!-- <article class="project card">
+        <div>
+          <h3>📝 T5 Text Summarization</h3>
+          <p class="muted">Fine‑tuned T5‑small for news summarization in Colab with LoRA, gradient checkpointing, and ROUGE evaluation; packaged a small web demo for interactive inference.</p>
+          <div class="skill-pills" style="margin:10px 0;">
+            <span class="pill">PyTorch</span><span class="pill">Transformers</span><span class="pill">PEFT</span><span class="pill">ROUGE</span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="chip" href="https://github.com/YOUR_GITHUB/t5-summarizer" target="_blank">Code ↗</a>
+            <a class="chip" href="#" target="_blank">Demo ↗</a>
+          </div>
+        </div>
+        <div class="media">
+          <img src="assets/project-t5.jpg" alt="Web UI for summarization demo" />
+        </div>
+      </article> -->
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills & Tools</h2>
+      <div class="card">
+        <table class="skill-table">
+          <thead>
+            <tr><th>Area</th><th>Comfort</th><th>Keywords</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Programming</td>
+              <td>Advanced</td>
+              <td>
+                <div class="skill-pills">
+                  <span class="pill">Python</span>
+                  <span class="pill">Pandas</span>
+                  <span class="pill">NumPy</span>
+                  <span class="pill">SQL</span>
+                  <span class="pill">Jupytor Notebooks</span>
+                  <span class="pill">Matplotlib</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>ML</td>
+              <td>Intermediate</td>
+              <td>
+                <div class="skill-pills">
+                  <span class="pill">scikit‑learn</span>
+                  <span class="pill">KMeans Clustering</span>
+                  <span class="pill">Linear Regression</span>
+                  <span class="pill">NLP</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Data</td>
+              <td>Intermediate</td>
+              <td>
+                <div class="skill-pills">
+                  <span class="pill">EDA</span>
+                  <span class="pill">Data Cleaning & Preprocessing</span>
+                  <span class="pill">Visualization</span>
+                  <span class="pill">Statistics</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Ops</td>
+              <td>Beginner</td>
+              <td>
+                <div class="skill-pills">
+                  <span class="pill">Git</span>
+                  <span class="pill">GitHub</span>
+                  <span class="pill">Google Colab</span>
+                  <span class="pill">FastAPI</span>
+                  <span class="pill">Streamlit</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Experience / Education Timeline -->
+    <section id="experience">
+      <h2 class="section-title">Experience & Education</h2>
+      <div class="card timeline">
+        <div class="tl-item">
+          <h3>Data Science Undergraduate — SLIIT</h3>
+          <p class="muted">2023 — Present · Colombo</p>
+          <p>Relevant coursework: Machine Learning,Probability and Statistics, Data Mining <br>CGPA: <strong>3.7/4.0</strong>.</p>
+        </div>
+        <div class="tl-item">
+          <h3>Internship</h3>
+          <p>Actively seeking opportunities.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements">
+      <h2 class="section-title">Achievements</h2>
+      <div class="grid grid-2">
+        <!-- <div class="card">
+          <h3>🏆 Hackathon Finalist</h3>
+          <p class="muted">Top‑10 in University Data Challenge for churn prediction model with SHAP explanations.</p>
+        </div> -->
+        <div class="card">
+          <h3>🏆 Academic Achievement</h3>
+          <p class="muted">Maintained CGPA 3.7/4.0 · Dean’s List (Y1S1,Y2S1)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog / Talks -->
+    <section id="writing">
+      <h2 class="section-title">Writing & Talks</h2>
+      <div class="grid grid-2">
+        <a class="card" href="#" target="_blank" rel="noopener">
+          <h3>The Rise of Agentic AI in business</h3>
+          <p class="muted">Drafted an article: <em>“Rise of Agentic AI in Business”</em>, exploring how multi-agent AI systems can impact decision making and automation. Planning to publish soon.</p>
+        </a>
+        <!-- <a class="card" href="#" target="_blank" rel="noopener">
+          <h3>LoRA for T5 in Colab</h3>
+          <p class="muted">Notes on memory‑efficient fine‑tuning and evaluation with ROUGE.</p>
+        </a> -->
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Let's collaborate</h3>
+          <p class="muted">Email: <a href="mailto:thushaliniammu12@gmail.com">thushaliniammu12@gmail.com</a><br/>I usually reply within 24–48 hours.</p>
+          <p class="muted">Also on <a href="https://www.linkedin.com/in/thushalini-peranantham" target="_blank">LinkedIn</a> and <a href="https://github.com/Thushalini" target="_blank">GitHub</a>.</p>
+        </div>
+        <div class="card">
+          <form name="contact" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact" />
+            <input name="name" placeholder="Your name" required />
+            <input name="email" type="email" placeholder="Your email" required />
+            <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Thushalini Peranantham</div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme Toggle (basic)
+    const toggle = document.getElementById('themeToggle');
+    const apply = (mode) => {
+      if(mode === 'light'){
+        document.documentElement.style.setProperty('--bg', '#ffffff');
+        document.documentElement.style.setProperty('--panel', '#f8fafc');
+        document.documentElement.style.setProperty('--text', '#0b1220');
+        document.documentElement.style.setProperty('--muted', '#475569');
+      } else {
+        document.documentElement.style.setProperty('--bg', '#0b1220');
+        document.documentElement.style.setProperty('--panel', '#0f172a');
+        document.documentElement.style.setProperty('--text', '#e2e8f0');
+        document.documentElement.style.setProperty('--muted', '#94a3b8');
+      }
+    }
+    const saved = localStorage.getItem('mode') || 'dark';
+    apply(saved);
+    toggle.textContent = saved === 'dark' ? '☾' : '☀';
+    toggle.addEventListener('click', () => {
+      const cur = localStorage.getItem('mode') || 'dark';
+      const next = cur === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('mode', next);
+      toggle.textContent = next === 'dark' ? '☾' : '☀';
+      apply(next);
+    });
+  </script>
+</body>
+</html>
